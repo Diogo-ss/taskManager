@@ -33,8 +33,8 @@ void Database::addCardToSession(std::string sessionName, std::string cardName) {
   }
   // sessions[0]->cards[0]->selecionado = true;
 }
-void Database::MoveUp() {
 
+void Database::MoveUp() {
   sessions[sessaoSelecionada]->cards[cardSelecionado]->selecionado = false;
   cardSelecionado--;
   if (cardSelecionado < 0) {
@@ -42,6 +42,7 @@ void Database::MoveUp() {
   }
   sessions[sessaoSelecionada]->cards[cardSelecionado]->selecionado = true;
 }
+
 void Database::MoveDown() {
   sessions[sessaoSelecionada]->cards[cardSelecionado]->selecionado = false;
   cardSelecionado++;
@@ -50,6 +51,7 @@ void Database::MoveDown() {
   }
   sessions[sessaoSelecionada]->cards[cardSelecionado]->selecionado = true;
 }
+
 void Database::MoveLeft() {
   if (sessions[sessaoSelecionada]->cards.size() == 0) {
     bool proxSession = false;
@@ -71,6 +73,7 @@ void Database::MoveLeft() {
   cardSelecionado = 0;
   sessions[sessaoSelecionada]->cards[cardSelecionado]->selecionado = true;
 }
+
 void Database::MoveRight() {
   if (sessions[sessaoSelecionada]->cards.size() == 0) {
     bool proxSession = false;
@@ -93,6 +96,7 @@ void Database::MoveRight() {
   cardSelecionado = 0;
   sessions[sessaoSelecionada]->cards[cardSelecionado]->selecionado = true;
 }
+
 void Database::MoveCardRight() {
   if (sessions[sessaoSelecionada]->cards.size() == 0) {
     bool proxSession = false;
@@ -118,6 +122,7 @@ void Database::MoveCardRight() {
   int positionCardSelected = sessions[sessaoSelecionada]->cards.size() - 1;
   cardSelecionado = positionCardSelected;
 }
+
 void Database::MoveCardLeft() {
   if (sessions[sessaoSelecionada]->cards.size() == 0) {
     bool proxSession = false;
@@ -145,7 +150,6 @@ void Database::MoveCardLeft() {
 }
 
 void Database::render() {
-
   initscr();
   noecho();
   cbreak();
@@ -157,7 +161,6 @@ void Database::render() {
   int altura_borda = 2;
 
   while (1) {
-
     for (int i = 0; i < sessions.size(); ++i) {
       int startX = i * largura / sessions.size();
       int width = largura / sessions.size();

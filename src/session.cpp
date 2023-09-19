@@ -2,13 +2,14 @@
 #include "card.h"
 #include <iostream>
 #include <ncurses.h>
+
 Session::Session(std::string sessionName) : nome(sessionName) {}
 
 void Session::addCard(std::string cardName) {
   cards.push_back(new Card(cardName));
 }
-void Session::render(int startX, int startY, int width, int height) {
 
+void Session::render(int startX, int startY, int width, int height) {
   WINDOW *win = newwin(height, width, startY, startX);
 
   box(win, 0, 0);

@@ -1,6 +1,7 @@
 #include "inputManager.h"
-
 #include <ncurses.h>
+#include <pthread.h>
+
 InputManager::InputManager(Database *db) : db(db) {}
 
 InputManager::~InputManager() {}
@@ -16,7 +17,6 @@ void *InputManager::InputThreadWrapper(void *data) {
 }
 
 void InputManager::InputThread() {
-
   initscr();
   cbreak();
   noecho();
@@ -39,6 +39,7 @@ void InputManager::InputThread() {
     }
   }
 }
+
 void InputManager::ProcessInput(int ch) {
   switch (ch) {
   case KEY_UP:
@@ -55,6 +56,7 @@ void InputManager::ProcessInput(int ch) {
     break;
   }
 }
+
 void InputManager::ProcessEditInput(int ch) {
   switch (ch) {
   case KEY_LEFT:
@@ -65,6 +67,7 @@ void InputManager::ProcessEditInput(int ch) {
     break;
   }
 }
+
 int InputManager::GetNextInput() {
   if (inputBuffer.empty()) {
     return -1;

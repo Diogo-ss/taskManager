@@ -7,7 +7,7 @@
 #include <vector>
 
 class Database {
-public:
+ public:
   Database(std::string nome, std::string email);
   void createSessions();
   void newSession(std::string sessionName);
@@ -22,7 +22,7 @@ public:
   void MoveCardLeft();
   WINDOW *window;
 
-private:
+ private:
   std::string email;
   std::vector<Session *> sessions;
   int sessaoSelecionada;

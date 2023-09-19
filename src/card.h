@@ -2,13 +2,14 @@
 #define card_h
 #include <ctime>
 #include <string>
+
 class Card {
-public:
+ public:
   Card(std::string cardName);
   std::string cardName;
   bool selecionado;
 
-private:
+ private:
   std::string titulo;
   std::string observacao;
   std::time_t date;
